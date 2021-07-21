@@ -16,11 +16,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background:#191a1d;
-}
-
-::-webkit-scrollbar-thumb:hover {
 	background:#0c0c0e;
+    border-radius: 5px;
 }
 
 #video-grid {
