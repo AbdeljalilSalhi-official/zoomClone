@@ -9,6 +9,7 @@ var peer = new Peer(undefined, {
     port: '443'
 });
 
+const peers = {};
 let myVideoStream;
 
 navigator.mediaDevices.getUserMedia({
@@ -29,6 +30,10 @@ navigator.mediaDevices.getUserMedia({
 
     socket.on('user-connected', userId => {
         connectToNewUser(userId, stream);
+    });
+
+    socket.on('user-disconnected', userId => {
+        if (peers[userId]) peers[userId].close();
     });
 
     let text = $('input');
@@ -57,7 +62,11 @@ const connectToNewUser = (userId, stream) => {
     call.on('stream', userVideoStream => {
         addVideoStream(video, userVideoStream) // Add the Stream to the Grid
     });
+    call.on('close', () => {
+        video.remove();
+    });
     console.log('USER ID: ' + userId);
+    peers[userId] = call;
 }
 
 const addVideoStream = (video, stream) => {
