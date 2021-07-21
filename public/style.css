@@ -16,11 +16,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background:rgb(29, 31, 34);
+	background:#191a1d;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background:#191a1d;
+	background:#0c0c0e;
 }
 
 #video-grid {
