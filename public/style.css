@@ -29,6 +29,7 @@ video {
     height: 300px;
     width: 400px;
     object-fit: cover;
+    border-radius: 5px;
     transform: rotateY(180deg); /*mirroring video*/
     -webkit-transform:rotateY(180deg);
     -moz-transform:rotateY(180deg);
@@ -55,7 +56,7 @@ video {
 
 .main__videos {
     flex-grow: 1; /*take as much as possible space*/
-    background-color: black;
+    background-color: #111314;
     display: flex;
     justify-content: center;
     align-items: center;
