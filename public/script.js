@@ -73,6 +73,9 @@ const addVideoStream = (video, stream) => {
     const div = document.createElement('div');
     const span = document.createElement('span');
     div.className = 'video_div';
+    if (USERID == undefined) {
+        USERID = 'You';
+    }
     span.setAttribute('id', USERID);
     span.innerText = USERID;
     span.className = 'video_name';
