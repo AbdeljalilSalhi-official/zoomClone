@@ -6,7 +6,7 @@ myVideo.muted = true;
 var peer = new Peer(undefined, {
     path: '/peerjs',
     host: '/',
-    port: '443'
+    port: '8080'
 });
 
 const peers = {};
@@ -63,7 +63,8 @@ const connectToNewUser = (userId, stream) => {
         addVideoStream(video, userVideoStream) // Add the Stream to the Grid
     });
     call.on('close', () => {
-        video.remove();
+        video_div = video.parentNode;
+        video_div.parentNode.removeChild(video_div);
     });
     console.log('USER ID: ' + userId);
     peers[userId] = call;
@@ -76,7 +77,7 @@ const addVideoStream = (video, stream) => {
     if (USERID == undefined) {
         USERID = 'You';
     }
-    span.setAttribute('id', USERID);
+    div.setAttribute('id', USERID);
     span.innerText = USERID;
     span.className = 'video_name';
     video.srcObject = stream;
