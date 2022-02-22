@@ -102,6 +102,10 @@ video {
     text-align: center;
 }
 
+.main__header h5 {
+    margin-top: 10px;
+}
+
 .main__chat__window {
     flex-grow: 1;
     overflow-y: scroll;
